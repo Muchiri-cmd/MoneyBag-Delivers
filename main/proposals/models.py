@@ -15,5 +15,7 @@ STATUS = (
 
 # Create your models here.
 class Proposal(models.Model):
-  proposal = models.ForeignKey(Prospect,on_delete=models.CASCADE)
+  prospect = models.ForeignKey(Prospect,on_delete=models.CASCADE)
   status = models.CharField(max_length=255,choices=STATUS,default='Draft')
+
+  
