@@ -1,10 +1,22 @@
+import { DashBoard,Home,NavBar, Prospects,Proposals } from "./components"
+import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
+
 const App = () => {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-    </div>
+    <>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/dashboard' element={<DashBoard />} />
+          <Route path='/prospects' element={<Prospects />} />
+          <Route path='/proposals' element={<Proposals />} />
+        </Routes>
+      </Router>
+      
+      
+      
+    </>
   )
 }
 
