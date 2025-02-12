@@ -1,12 +1,22 @@
 from django.shortcuts import render
 from .models import Prospect
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .serializer import ProspectSerializer
 
-# Create your views here.
-def get_prospects(request):
-  prospects = Prospect.objects.all()
 
-  context = {
-    'prospects':prospects,
-  }
+class ProspectsView(APIView):
+  serializer_class = ProspectSerializer
 
-  return render(request,'prospects.html',context)
+  def get(self,request):
+    prospects = Prospect.objects.all()
+    serializer = ProspectSerializer(prospects,many=True)
+    return Response(serializer.data)
+
+  def post(self,request):
+    serializer = ProspectSerializer(data=request.data)
+
+    if serializer.is_valid():
+      serializer.save()
+
+    return Response(serializer.data)

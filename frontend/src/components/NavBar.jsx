@@ -22,7 +22,7 @@ const NavBar = () => {
         <Link to='/proposals'>
           <li className='cursor-pointer'>Proposals</li>
         </Link>
-        <Link to='/'>
+        <Link to='/account'>
           <li className='cursor-pointer'>
             <IoMdPerson />
           </li>

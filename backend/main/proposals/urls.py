@@ -4,7 +4,7 @@ from .views import *
 app_name = 'proposals'
 
 urlpatterns = [
-  path('',get_proposals,name='proposals')    
+  path('',ProposalsView.as_view(),name='proposals')    
 ]
 
 
